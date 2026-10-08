@@ -1,0 +1,170 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════
+   Portal MISA — Stripe/Notion corporativo suave.
+   Tom automático conforme o Sistema Operacional (prefers-color-scheme).
+   :root = LIGHT (padrão) · @media dark = DARK.
+   ═══════════════════════════════════════════════════════ */
+:root {
+  /* Azul corporativo — mesma família de matiz do navy do grid (~220°),
+     para a cor de ação conversar com a faixa de hierarquia. */
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-primary-light: #3b82f6;
+  --color-primary-bg: #eff6ff;
+
+  --color-bg: #f7f8fa;
+  --color-surface: #ffffff;
+  --color-nav: #ffffff;
+  --color-nav-text: #334155;
+  --color-nav-active: #2563eb;
+  --color-nav-hover: #f1f5f9;
+  --color-border: #e6e8ec;
+
+  --color-text: #1a1d23;
+  --color-text-secondary: #6b7280;
+
+  /* Semânticas */
+  --color-success: #16a34a;
+  --color-success-bg: #f0fdf4;
+  --color-warning: #d97706;
+  --color-warning-bg: #fffbeb;
+  --color-danger: #dc2626;
+  --color-danger-bg: #fef2f2;
+  --color-info: #0891b2;
+  --color-info-bg: #ecfeff;
+
+  /* Finanças (compat) */
+  --color-saldo-pos: #16a34a;
+  --color-saldo-neg: #dc2626;
+  --color-pendente: #d97706;
+  --color-pago: #16a34a;
+
+  /* KPI icon backgrounds (light = pastéis) */
+  --kpi-bg-green: #f0fdf4;
+  --kpi-bg-blue: #eff6ff;
+  --kpi-bg-cyan: #ecfeff;
+  --kpi-bg-amber: #fffbeb;
+  --kpi-bg-red: #fef2f2;
+  --kpi-bg-purple: #f5f3ff;
+
+  /* Charts (compat, caso usados) */
+  --color-tick: #6b7280;
+  --color-label-muted: #6b7280;
+
+  /* Árvore de títulos — faixa por nível de hierarquia (LIGHT).
+     Nível 0 é a faixa escura; a cor vai clareando conforme desce. */
+  --tree-l0-bg: #1e2c4f;
+  --tree-l0-text: #ffffff;
+  --tree-l1-bg: #e5ebf4;
+  --tree-l2-bg: #edf1f7;
+  --tree-l3-bg: #f4f6fa;
+  --tree-l4-bg: #fafbfc;
+  --tree-leaf-bg: #ffffff;
+  --tree-row-border: #eaedf2;
+
+  /* Paleta de gráficos (LIGHT) */
+  --chart-1: #2563eb;
+  --chart-2: #0891b2;
+  --chart-3: #16a34a;
+  --chart-4: #d97706;
+  --chart-5: #dc2626;
+  --chart-6: #0d9488;
+  --chart-7: #db2777;
+  --chart-8: #ea580c;
+}
+
+/* DARK — aplicado via classe .dark no <html> (o JS define a classe a partir
+   da preferência salva ou do sistema, então não precisamos de @media). */
+:root.dark {
+  /* Azul com a MESMA luminosidade do índigo anterior: no dark o primary serve
+     tanto de fundo de botão (quer escuro) quanto de cor de texto (quer claro),
+     então manter a luminosidade preserva o contraste dos dois casos. */
+  --color-primary: #3770ed;
+  --color-primary-hover: #2a5ed6;
+  --color-primary-light: #60a5fa;
+  --color-primary-bg: #172554;
+
+  --color-bg: #0d0f14;
+  --color-surface: #171a21;
+  --color-nav: #171a21;
+  --color-nav-text: #cbd5e1;
+  --color-nav-active: #60a5fa;
+  --color-nav-hover: #1f232c;
+  --color-border: #262b34;
+
+  --color-text: #eef0f3;
+  --color-text-secondary: #98a1b0;
+
+  --color-success: #22c55e;
+  --color-success-bg: #0f2417;
+  --color-warning: #f59e0b;
+  --color-warning-bg: #2a2010;
+  --color-danger: #ef4444;
+  --color-danger-bg: #2a1414;
+  --color-info: #22d3ee;
+  --color-info-bg: #0c2429;
+
+  --color-saldo-pos: #22c55e;
+  --color-saldo-neg: #ef4444;
+  --color-pendente: #f59e0b;
+  --color-pago: #22c55e;
+
+  --kpi-bg-green: #0f2417;
+  --kpi-bg-blue: #172554;
+  --kpi-bg-cyan: #0c2429;
+  --kpi-bg-amber: #2a2010;
+  --kpi-bg-red: #2a1414;
+  --kpi-bg-purple: #1e1040;
+
+  --color-tick: #98a1b0;
+  --color-label-muted: #98a1b0;
+
+  /* Árvore de títulos — mesma lógica no DARK: nível 0 é a faixa mais
+     destacada e os níveis vão escurecendo até o fundo dos títulos. */
+  --tree-l0-bg: #2b3654;
+  --tree-l0-text: #f3f6fb;
+  --tree-l1-bg: #232936;
+  --tree-l2-bg: #1f242f;
+  --tree-l3-bg: #1b1f28;
+  --tree-l4-bg: #191c24;
+  --tree-leaf-bg: #171a21;
+  --tree-row-border: #21252e;
+
+  /* Paleta de gráficos (DARK) — mais claras para contrastar no fundo escuro */
+  --chart-1: #60a5fa;
+  --chart-2: #22d3ee;
+  --chart-3: #4ade80;
+  --chart-4: #fbbf24;
+  --chart-5: #f87171;
+  --chart-6: #2dd4bf;
+  --chart-7: #f472b6;
+  --chart-8: #fb923c;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  @apply antialiased;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background-color: transparent; }
+::-webkit-scrollbar-thumb { background-color: var(--color-border); border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background-color: var(--color-text-secondary); }
+
+/* Árvore de títulos — hover que funciona em qualquer faixa de hierarquia
+   (inclusive na escura do nível 0), sem precisar de uma cor por nível. */
+.tree-row { transition: filter 0.12s ease; }
+.tree-row:hover { filter: brightness(0.97); }
+:root.dark .tree-row:hover { filter: brightness(1.18); }
+
+/* Animations */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes scaleIn { from { opacity: 0; transform: scale(0.97); } to { opacity: 1; transform: scale(1); } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+.animate-fadeIn { animation: fadeIn 0.2s ease-out; }
+.animate-scaleIn { animation: scaleIn 0.18s ease-out; }
+.animate-slideUp { animation: slideUp 0.22s ease-out; }
